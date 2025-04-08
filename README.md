@@ -12,6 +12,7 @@ A compact Remotely Operated Underwater Vehicle (ROUV), developed as a one-day ha
   - A front-mounted camera provides real-time visual feedback of the environment.
 
 ## Demo
+<img src="video/pool.png" alt="Screenshot" width="300"/>
 
  [Click here to view the demo video](video/demo.mp4)
 
