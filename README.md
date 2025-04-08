@@ -18,7 +18,7 @@ A compact Remotely Operated Underwater Vehicle (ROUV), developed as a one-day ha
   Your browser does not support embedded videos.
 </video>
 
-You can also [click here](assets/demo.mp4) to view the demo directly if the embed doesn’t work.
+You can also [click here](video/demo.mp4) to view the demo directly if the embed doesn’t work.
 
 ## Acknowledgments
 
