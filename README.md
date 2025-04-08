@@ -1,23 +1,25 @@
-# Webots-ROUV-simulation
+# Aqua Mind ROUV Prototype
 
-A simple, ROUV simulated using [Webots](https://cyberbotics.com) open source robot simulator.
-<!--
-![preview](Pool_2.png)
--->
+A compact Remotely Operated Underwater Vehicle (ROUV), developed as a one-day hackathon prototype under the concept of **Aqua Mind**, demonstrates how an underwater robot can perform debris cleaning and data analysis. This simulation runs in the open-source [Webots](https://cyberbotics.com) environment, allowing the vehicle to move on the water’s surface and dive below it.
 
-https://user-images.githubusercontent.com/98900145/223086730-952ff910-ab90-4f4d-896f-fd25a3edaa42.mp4
+## Features
 
----
+- **Keyboard Controls**  
+  - **Arrow Keys:** Move forward, backward, turn left, and turn right.  
+  - **W / S Keys:** Float (ascend) or dive (descend).  
 
-### Quick start
+- **Onboard Camera**  
+  - A front-mounted camera provides real-time visual feedback of the environment.
 
-This robot is a simple ROUV which can travel on water surface and dive in the bottom. Robot can be controlled using keyboard inputs. Arrow keys are used to travel forward, backward, turn left and right. "W" and "S" is used float and dive. From the camera mounted infront of the robot, environment can be observed.
+## Demo
 
----
-<!--
-![preview](Pool_1.png)
--->
+<!-- Replace `assets/demo.mp4` with the path to your video file -->
+<video src="video/demo.mp4" width="600" controls>
+  Your browser does not support embedded videos.
+</video>
 
-https://user-images.githubusercontent.com/98900145/223086871-1bbcf6ad-7e43-49ba-9757-125854e29cbd.mp4
+You can also [click here](assets/demo.mp4) to view the demo directly if the embed doesn’t work.
 
+## Acknowledgments
 
+This design builds on the `.wbt` file from the [Webots-ROV-simulation repository](https://github.com/achintha96/Webots-ROV-simulation). Special thanks to the original project for supplying the open-source foundation that made this prototype possible.

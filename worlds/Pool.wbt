@@ -1,10 +1,20 @@
-#VRML_SIM R2021a utf8
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/advertising_board/protos/AdvertisingBoard.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/drinks/protos/BeerBottle.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/drinks/protos/Can.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Rubber.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/drinks/protos/WaterBottle.proto"
+
 WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.4384733113119762 0.8736533973555626 0.21088123803741823 0.9767671556806504
-  position 1.4332517949918075 1.2345262447321166 2.4145642035006327
+  orientation -0.78105069012858 0.468847909282878 0.41248206919906627 1.8069518998743204
+  position -5.108949197628158 2.2797827170341236 10.442124125454779
   follow "ROV"
   followType "Mounted Shot"
 }
@@ -13,13 +23,26 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 RectangleArena {
-  floorSize 5 5
+  rotation 1 0 0 -1.5707953071795862
+  floorSize 100 100
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "/home/kishore/Downloads/under_water.jpeg"
+      ]
+    }
+    roughness 1
+    metalness 0
+    textureTransform TextureTransform {
+      translation 0.5 0.5
+    }
+  }
   wallHeight 1
 }
 Fluid {
   translation 0 0.5 0
   children [
-    Transform {
+    Pose {
       children [
         DEF tank Shape {
           appearance PBRAppearance {
@@ -29,7 +52,7 @@ Fluid {
             metalness 0
           }
           geometry Box {
-            size 5 1 5
+            size 100 1 100
           }
         }
       ]
@@ -39,17 +62,17 @@ Fluid {
   boundingObject USE tank
 }
 DEF ROV Robot {
-  translation 0.0003354298586595078 0.0885584490520672 0.9800162618600108
-  rotation -0.0218278878195283 0.18834263606536353 0.9818607817574181 -0.004211034759804867
+  translation -0.23744661332738962 0.9420565678957712 0.9436631710473752
+  rotation -0.013111295301759893 0.9995399870834032 0.02734790955119039 2.8541052455395093
   children [
-    DEF frame Transform {
+    DEF frame Pose {
       children [
         DEF bottom_frame Solid {
           translation 0 -0.05715 0
           children [
             DEF length_side_tube_right Solid {
               translation 0.06985 0 0
-              rotation 1 0 0 -1.5708
+              rotation 1 0 0 3.14158898037044
               children [
                 DEF shape_1 Shape {
                   appearance DEF PVC_color PBRAppearance {
@@ -66,7 +89,7 @@ DEF ROV Robot {
             }
             DEF length_side_tube_left Solid {
               translation -0.06985 0 0
-              rotation 1 0 0 -1.5708
+              rotation 1 0 0 3.14158898037044
               children [
                 Shape {
                   appearance DEF PVC_color PBRAppearance {
@@ -84,7 +107,7 @@ DEF ROV Robot {
             }
             DEF width_side_tube_rear Solid {
               translation 0 0 0.14605
-              rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
+              rotation 0.7071071476757852 1.2247741915997023e-06 0.7071064146960592 3.141591669887405
               children [
                 DEF shape_2 Shape {
                   appearance DEF PVC_color PBRAppearance {
@@ -102,7 +125,7 @@ DEF ROV Robot {
             }
             DEF width_side_tube_front Solid {
               translation 0 0 -0.14605
-              rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
+              rotation 0.7071071476757852 1.2247741915997023e-06 0.7071064146960592 3.141591669887405
               children [
                 Shape {
                   appearance DEF PVC_color PBRAppearance {
@@ -126,7 +149,7 @@ DEF ROV Robot {
           children [
             DEF length_side_tube_right Solid {
               translation 0.06985 0 0
-              rotation 1 0 0 -1.5708
+              rotation 1 0 0 3.14158898037044
               children [
                 Shape {
                   appearance DEF PVC_color PBRAppearance {
@@ -143,7 +166,7 @@ DEF ROV Robot {
             }
             DEF length_side_tube_left Solid {
               translation -0.06985 0 0
-              rotation 1 0 0 -1.5708
+              rotation 1 0 0 3.14158898037044
               children [
                 Shape {
                   appearance DEF PVC_color PBRAppearance {
@@ -161,7 +184,7 @@ DEF ROV Robot {
             }
             DEF width_side_tube_rear Solid {
               translation 0 0 0.14605
-              rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
+              rotation 0.7071071476757852 1.2247741915997023e-06 0.7071064146960592 3.141591669887405
               children [
                 Shape {
                   appearance DEF PVC_color PBRAppearance {
@@ -179,7 +202,7 @@ DEF ROV Robot {
             }
             DEF width_side_tube_front Solid {
               translation 0 0 -0.14605
-              rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
+              rotation 0.7071071476757852 1.2247741915997023e-06 0.7071064146960592 3.141591669887405
               children [
                 Shape {
                   appearance DEF PVC_color PBRAppearance {
@@ -202,6 +225,7 @@ DEF ROV Robot {
           children [
             DEF right Solid {
               translation 0.06985 0 0
+              rotation -1 0 0 1.5707963267948966
               children [
                 DEF shape_3 Shape {
                   appearance USE PVC_color
@@ -214,6 +238,7 @@ DEF ROV Robot {
             }
             DEF left Solid {
               translation -0.06985 0 0
+              rotation -1 0 0 1.5707963267948966
               children [
                 Shape {
                   appearance USE PVC_color
@@ -227,6 +252,7 @@ DEF ROV Robot {
             }
             DEF rear Solid {
               translation 0 0 0.14605
+              rotation -1 0 0 1.5707963267948966
               children [
                 Shape {
                   appearance USE PVC_color
@@ -240,6 +266,7 @@ DEF ROV Robot {
             }
             DEF front Solid {
               translation 0 0 -0.14605
+              rotation -1 0 0 1.5707963267948966
               children [
                 Shape {
                   appearance USE PVC_color
@@ -257,7 +284,7 @@ DEF ROV Robot {
           children [
             DEF bootm_right Solid {
               translation 0.06985 -0.0762 0
-              rotation 1 0 0 -1.5707953071795862
+              rotation -1 0 0 3.141591633975729
               children [
                 DEF shape_4 Shape {
                   appearance USE PVC_color
@@ -270,7 +297,7 @@ DEF ROV Robot {
             }
             DEF bootm_left Solid {
               translation -0.06985 -0.0762 0
-              rotation 1 0 0 -1.5707953071795862
+              rotation -1 0 0 3.141591633975729
               children [
                 DEF shape_4 Shape {
                   appearance USE PVC_color
@@ -284,7 +311,7 @@ DEF ROV Robot {
             }
             DEF top_right Solid {
               translation -0.06985 0.0889 0
-              rotation 1 0 0 -1.5707953071795862
+              rotation -1 0 0 3.141591633975729
               children [
                 DEF shape_5 Shape {
                   appearance USE PVC_color
@@ -298,7 +325,7 @@ DEF ROV Robot {
             }
             DEF top_left Solid {
               translation 0.06985 0.0889 0
-              rotation 1 0 0 -1.5707953071795862
+              rotation -1 0 0 3.141591633975729
               children [
                 Shape {
                   appearance USE PVC_color
@@ -317,7 +344,7 @@ DEF ROV Robot {
           children [
             DEF right_motor Solid {
               translation 0.1 0 0.05
-              rotation 1 0 0 -1.5707953071795862
+              rotation -1 0 0 3.141591633975729
               children [
                 Shape {
                   appearance PBRAppearance {
@@ -335,7 +362,7 @@ DEF ROV Robot {
             }
             DEF left_motor Solid {
               translation -0.1 0 0.05
-              rotation 1 0 0 -1.5707953071795862
+              rotation -1 0 0 3.141591633975729
               children [
                 Shape {
                   appearance PBRAppearance {
@@ -353,7 +380,7 @@ DEF ROV Robot {
             }
             DEF right_motor_down Solid {
               translation 0.035 0.05 0
-              rotation 1 0 0 0
+              rotation -1 0 0 1.5707963267948966
               children [
                 Shape {
                   appearance PBRAppearance {
@@ -371,7 +398,7 @@ DEF ROV Robot {
             }
             DEF left_motor_down Solid {
               translation -0.035 0.05 0
-              rotation 1 0 0 0
+              rotation -1 0 0 1.5707963267948966
               children [
                 Shape {
                   appearance PBRAppearance {
@@ -404,9 +431,9 @@ DEF ROV Robot {
       fastHelix Solid {
         translation 0.1 0 0.1
         rotation 0.5773489358556708 0.5773509358554485 -0.5773509358554485 -2.094395307179586
-        scale 0.18 0.18 0.18
         children [
           Solid {
+            rotation -1 0 0 1.5707963267948966
             children [
               DEF FAST_MAIN_HELIX_SHAPE Shape {
                 appearance DEF FAST_HELIX_APPEARANCE PBRAppearance {
@@ -432,8 +459,7 @@ DEF ROV Robot {
       }
       slowHelix Solid {
         translation 0.1 0 0.1
-        rotation 0 1 0 -3.14159
-        scale 0.18 0.18 0.18
+        rotation 0.476489376687107 -0.8791802283399763 6.322036733100686e-07 3.1415903206061127
         children [
           Solid {
             children [
@@ -444,7 +470,7 @@ DEF ROV Robot {
                   DEF SLOW_MAIN_HELIX_GROUP Group {
                     children [
                       DEF TIP Transform {
-                        rotation 0 0 1 1.5708
+                        rotation -0.5773488553723224 -0.5773509760969792 0.5773509760969793 2.094397223120449
                         scale 2 2 2
                         children [
                           Shape {
@@ -459,7 +485,7 @@ DEF ROV Robot {
                       }
                       DEF INSERT Transform {
                         translation -0.0299985 0.000299885 0
-                        rotation 0 0 1 1.5608
+                        rotation -0.5811978356643939 -0.5754168383958815 0.5754168383958815 2.0886333679570326
                         scale 5 1 5
                         children [
                           Shape {
@@ -472,7 +498,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE1 Transform {
+                      DEF BLADE1 Pose {
                         translation -0.01 0.04 0
                         rotation 0 1 0 -0.523595307179586
                         children [
@@ -485,7 +511,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE2 Transform {
+                      DEF BLADE2 Pose {
                         translation -0.0101704 -0.0149471 0.0262451
                         rotation 0.8814118335171858 -0.4562539138218564 0.12225197690880428 -1.1598053071795862
                         children [
@@ -498,7 +524,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE3 Transform {
+                      DEF BLADE3 Pose {
                         translation -0.0134898 -0.0150793 -0.0288338
                         rotation 0.8814127531683258 0.4562518722307874 0.12225296576416202 1.1598
                         children [
@@ -511,9 +537,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP1 Transform {
+                      DEF BLADETIP1 Pose {
                         translation -0.01 0.07 0
-                        rotation -0.9351138487168261 -0.25056095946412593 -0.2505619594639642 1.63783
+                        rotation -0.9659263233013932 5.164766469065984e-07 -0.2588171902196328 3.1415896966196457
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -526,9 +552,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP2 Transform {
+                      DEF BLADETIP2 Pose {
                         translation -0.00628804 -0.0306827 0.0514904
-                        rotation 0.6947409354408542 0.35963096658111415 -0.6228969421169929 0.736199
+                        rotation -0.8814119753310158 0.45625361940642895 -0.12225205324087753 1.1598098629075937
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -541,9 +567,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP3 Transform {
+                      DEF BLADETIP3 Pose {
                         translation -0.0173721 -0.0308149 -0.0540791
-                        rotation 0.9636116709319705 0.23149392094611274 -0.13365295435825897 2.63623
+                        rotation 0.8814129653318894 0.45625160227861117 0.1222524435872172 1.1598014257518097
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -579,9 +605,9 @@ DEF ROV Robot {
       fastHelix Solid {
         translation -0.1 0 0.1
         rotation 0.5773489358556708 0.5773509358554485 -0.5773509358554485 -2.094395307179586
-        scale 0.18 0.18 0.18
         children [
           Solid {
+            rotation -1 0 0 1.5707963267948966
             children [
               DEF FAST_MAIN_HELIX_SHAPE Shape {
                 appearance DEF FAST_HELIX_APPEARANCE PBRAppearance {
@@ -607,8 +633,7 @@ DEF ROV Robot {
       }
       slowHelix Solid {
         translation -0.1 0 0.1
-        rotation 0 1 0 -3.14159
-        scale 0.18 0.18 0.18
+        rotation -0.3995787834318542 -0.9166988577667359 -5.301590906784678e-07 3.1415902210470605
         children [
           Solid {
             children [
@@ -619,7 +644,7 @@ DEF ROV Robot {
                   DEF SLOW_MAIN_HELIX_GROUP Group {
                     children [
                       DEF TIP Transform {
-                        rotation 0 0 1 1.5708
+                        rotation -0.5773488553723224 -0.5773509760969792 0.5773509760969793 2.094397223120449
                         scale 2 2 2
                         children [
                           Shape {
@@ -634,7 +659,7 @@ DEF ROV Robot {
                       }
                       DEF INSERT Transform {
                         translation -0.0299985 0.000299885 0
-                        rotation 0 0 1 1.5608
+                        rotation -0.5811978356643939 -0.5754168383958815 0.5754168383958815 2.0886333679570326
                         scale 5 1 5
                         children [
                           Shape {
@@ -647,7 +672,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE1 Transform {
+                      DEF BLADE1 Pose {
                         translation -0.01 0.04 0
                         rotation 0 1 0 -0.523595307179586
                         children [
@@ -660,7 +685,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE2 Transform {
+                      DEF BLADE2 Pose {
                         translation -0.0101704 -0.0149471 0.0262451
                         rotation 0.8814118335171858 -0.4562539138218564 0.12225197690880428 -1.1598053071795862
                         children [
@@ -673,7 +698,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE3 Transform {
+                      DEF BLADE3 Pose {
                         translation -0.0134898 -0.0150793 -0.0288338
                         rotation 0.8814127531683258 0.4562518722307874 0.12225296576416202 1.1598
                         children [
@@ -686,9 +711,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP1 Transform {
+                      DEF BLADETIP1 Pose {
                         translation -0.01 0.07 0
-                        rotation -0.9351138487168261 -0.25056095946412593 -0.2505619594639642 1.63783
+                        rotation -0.9659263233013932 5.164766469065984e-07 -0.2588171902196328 3.1415896966196457
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -701,9 +726,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP2 Transform {
+                      DEF BLADETIP2 Pose {
                         translation -0.00628804 -0.0306827 0.0514904
-                        rotation 0.6947409354408542 0.35963096658111415 -0.6228969421169929 0.736199
+                        rotation -0.8814119753310158 0.45625361940642895 -0.12225205324087753 1.1598098629075937
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -716,9 +741,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP3 Transform {
+                      DEF BLADETIP3 Pose {
                         translation -0.0173721 -0.0308149 -0.0540791
-                        rotation 0.9636116709319705 0.23149392094611274 -0.13365295435825897 2.63623
+                        rotation 0.8814129653318894 0.45625160227861117 0.1222524435872172 1.1598014257518097
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -753,9 +778,9 @@ DEF ROV Robot {
       fastHelix Solid {
         translation 0.035 0 0
         rotation -1.73924e-06 1 -6.88391e-07 -1.5707953071795862
-        scale 0.18 0.18 0.18
         children [
           Solid {
+            rotation -1 0 0 1.5707963267948966
             children [
               DEF FAST_MAIN_HELIX_SHAPE Shape {
                 appearance DEF FAST_HELIX_APPEARANCE PBRAppearance {
@@ -781,8 +806,7 @@ DEF ROV Robot {
       }
       slowHelix Solid {
         translation 0.035 0 0
-        rotation 1.7732894512546492e-06 0.7071067811854357 0.7071067811854357 3.14159
-        scale 0.18 0.18 0.18
+        rotation -0.49596697042019916 -0.6140111702820163 -0.6140089958796355 2.220765008027611
         children [
           Solid {
             children [
@@ -793,7 +817,7 @@ DEF ROV Robot {
                   DEF SLOW_MAIN_HELIX_GROUP Group {
                     children [
                       DEF TIP Transform {
-                        rotation 0 0 1 1.5708
+                        rotation -0.5773488553723224 -0.5773509760969792 0.5773509760969793 2.094397223120449
                         scale 2 2 2
                         children [
                           Shape {
@@ -808,7 +832,7 @@ DEF ROV Robot {
                       }
                       DEF INSERT Transform {
                         translation -0.0299985 0.000299885 0
-                        rotation 0 0 1 1.5608
+                        rotation -0.5811978356643939 -0.5754168383958815 0.5754168383958815 2.0886333679570326
                         scale 5 1 5
                         children [
                           Shape {
@@ -821,7 +845,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE1 Transform {
+                      DEF BLADE1 Pose {
                         translation -0.01 0.04 0
                         rotation 0 1 0 -0.523595307179586
                         children [
@@ -834,7 +858,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE2 Transform {
+                      DEF BLADE2 Pose {
                         translation -0.0101704 -0.0149471 0.0262451
                         rotation 0.8814118335171858 -0.4562539138218564 0.12225197690880428 -1.1598053071795862
                         children [
@@ -847,7 +871,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE3 Transform {
+                      DEF BLADE3 Pose {
                         translation -0.0134898 -0.0150793 -0.0288338
                         rotation 0.8814127531683258 0.4562518722307874 0.12225296576416202 1.1598
                         children [
@@ -860,9 +884,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP1 Transform {
+                      DEF BLADETIP1 Pose {
                         translation -0.01 0.07 0
-                        rotation -0.9351138487168261 -0.25056095946412593 -0.2505619594639642 1.63783
+                        rotation -0.9659263233013932 5.164766469065984e-07 -0.2588171902196328 3.1415896966196457
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -875,9 +899,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP2 Transform {
+                      DEF BLADETIP2 Pose {
                         translation -0.00628804 -0.0306827 0.0514904
-                        rotation 0.6947409354408542 0.35963096658111415 -0.6228969421169929 0.736199
+                        rotation -0.8814119753310158 0.45625361940642895 -0.12225205324087753 1.1598098629075937
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -890,9 +914,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP3 Transform {
+                      DEF BLADETIP3 Pose {
                         translation -0.0173721 -0.0308149 -0.0540791
-                        rotation 0.9636116709319705 0.23149392094611274 -0.13365295435825897 2.63623
+                        rotation 0.8814129653318894 0.45625160227861117 0.1222524435872172 1.1598014257518097
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -928,9 +952,9 @@ DEF ROV Robot {
       fastHelix Solid {
         translation -0.035 0 0
         rotation -1.73924e-06 1 -6.88391e-07 -1.5707953071795862
-        scale 0.18 0.18 0.18
         children [
           Solid {
+            rotation -1 0 0 1.5707963267948966
             children [
               DEF FAST_MAIN_HELIX_SHAPE Shape {
                 appearance DEF FAST_HELIX_APPEARANCE PBRAppearance {
@@ -956,8 +980,7 @@ DEF ROV Robot {
       }
       slowHelix Solid {
         translation -0.035 0 0
-        rotation 9.381857096790023e-07 0.7071067811862364 0.7071067811862364 3.14159
-        scale 0.18 0.18 0.18
+        rotation -0.48118190256910326 -0.6198652625522744 -0.6198637212492581 2.244635645722478
         children [
           Solid {
             children [
@@ -968,7 +991,7 @@ DEF ROV Robot {
                   DEF SLOW_MAIN_HELIX_GROUP Group {
                     children [
                       DEF TIP Transform {
-                        rotation 0 0 1 1.5708
+                        rotation -0.5773488553723224 -0.5773509760969792 0.5773509760969793 2.094397223120449
                         scale 2 2 2
                         children [
                           Shape {
@@ -983,7 +1006,7 @@ DEF ROV Robot {
                       }
                       DEF INSERT Transform {
                         translation -0.0299985 0.000299885 0
-                        rotation 0 0 1 1.5608
+                        rotation -0.5811978356643939 -0.5754168383958815 0.5754168383958815 2.0886333679570326
                         scale 5 1 5
                         children [
                           Shape {
@@ -996,7 +1019,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE1 Transform {
+                      DEF BLADE1 Pose {
                         translation -0.01 0.04 0
                         rotation 0 1 0 -0.523595307179586
                         children [
@@ -1009,7 +1032,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE2 Transform {
+                      DEF BLADE2 Pose {
                         translation -0.0101704 -0.0149471 0.0262451
                         rotation 0.8814118335171858 -0.4562539138218564 0.12225197690880428 -1.1598053071795862
                         children [
@@ -1022,7 +1045,7 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADE3 Transform {
+                      DEF BLADE3 Pose {
                         translation -0.0134898 -0.0150793 -0.0288338
                         rotation 0.8814127531683258 0.4562518722307874 0.12225296576416202 1.1598
                         children [
@@ -1035,9 +1058,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP1 Transform {
+                      DEF BLADETIP1 Pose {
                         translation -0.01 0.07 0
-                        rotation -0.9351138487168261 -0.25056095946412593 -0.2505619594639642 1.63783
+                        rotation -0.9659263233013932 5.164766469065984e-07 -0.2588171902196328 3.1415896966196457
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -1050,9 +1073,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP2 Transform {
+                      DEF BLADETIP2 Pose {
                         translation -0.00628804 -0.0306827 0.0514904
-                        rotation 0.6947409354408542 0.35963096658111415 -0.6228969421169929 0.736199
+                        rotation -0.8814119753310158 0.45625361940642895 -0.12225205324087753 1.1598098629075937
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -1065,9 +1088,9 @@ DEF ROV Robot {
                           }
                         ]
                       }
-                      DEF BLADETIP3 Transform {
+                      DEF BLADETIP3 Pose {
                         translation -0.0173721 -0.0308149 -0.0540791
-                        rotation 0.9636116709319705 0.23149392094611274 -0.13365295435825897 2.63623
+                        rotation 0.8814129653318894 0.45625160227861117 0.1222524435872172 1.1598014257518097
                         children [
                           DEF tip Shape {
                             appearance Rubber {
@@ -1091,9 +1114,11 @@ DEF ROV Robot {
     }
     Camera {
       translation 0 0 -0.15
+      rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0943951023931953
       children [
         Solid {
-          translation 0 0 -0.004
+          translation 0.004 2.4492935982947063e-19 -2.4492935982947063e-19
+          rotation 0.5773502691896258 -0.5773502691896258 -0.5773502691896258 2.0943951023931953
           children [
             Shape {
               appearance PBRAppearance {
@@ -1123,110 +1148,114 @@ DEF ROV Robot {
   ]
   boundingObject Group {
     children [
-      DEF bottom_length Transform {
+      DEF bottom_length Pose {
         translation 0.06985 -0.05715 0
-        rotation 1 0 0 1.5708
+        rotation 1 0 0 3.6731891284930826e-06
         children [
           USE shape_1
         ]
       }
-      DEF bottom_length Transform {
+      DEF bottom_length Pose {
         translation -0.06985 -0.05715 0
-        rotation 1 0 0 1.5708
+        rotation 1 0 0 3.6731891284930826e-06
         children [
           USE shape_1
         ]
       }
-      DEF top_length Transform {
+      DEF top_length Pose {
         translation 0.06985 0.05715 0
-        rotation 1 0 0 1.5708
+        rotation 1 0 0 3.6731891284930826e-06
         children [
           USE shape_1
         ]
       }
-      DEF top_length Transform {
+      DEF top_length Pose {
         translation -0.06985 0.05715 0
-        rotation 1 0 0 1.5708
+        rotation 1 0 0 3.6731891284930826e-06
         children [
           USE shape_1
         ]
       }
-      DEF bottom_width Transform {
+      DEF bottom_width Pose {
         translation 0 -0.05715 0.14605
-        rotation -0.5773509358554485 -0.5773509358554485 0.5773489358556708 -2.094395307179586
+        rotation 6.955834108456497e-07 0.9999999999982582 1.7320516149924155e-06 1.5707952903289715
         children [
           USE shape_2
         ]
       }
-      DEF bottom_width Transform {
+      DEF bottom_width Pose {
         translation 0 -0.05715 -0.14605
-        rotation -0.5773509358554485 -0.5773509358554485 0.5773489358556708 -2.094395307179586
+        rotation 6.955834108456497e-07 0.9999999999982582 1.7320516149924155e-06 1.5707952903289715
         children [
           USE shape_2
         ]
       }
-      DEF top_width Transform {
+      DEF top_width Pose {
         translation 0 0.05715 0.14605
-        rotation -0.5773509358554485 -0.5773509358554485 0.5773489358556708 -2.094395307179586
+        rotation 6.955834108456497e-07 0.9999999999982582 1.7320516149924155e-06 1.5707952903289715
         children [
           USE shape_2
         ]
       }
-      DEF top_width Transform {
+      DEF top_width Pose {
         translation 0 0.05715 -0.14605
-        rotation -0.5773509358554485 -0.5773509358554485 0.5773489358556708 -2.094395307179586
+        rotation 6.955834108456497e-07 0.9999999999982582 1.7320516149924155e-06 1.5707952903289715
         children [
           USE shape_2
         ]
       }
-      DEF holder_rear Transform {
+      DEF holder_rear Pose {
         translation 0 0 0.14605
+        rotation -1 0 0 1.5707963267948966
         children [
           USE shape_3
         ]
       }
-      DEF holder_front Transform {
+      DEF holder_front Pose {
         translation 0 0 -0.14605
+        rotation -1 0 0 1.5707963267948966
         children [
           USE shape_3
         ]
       }
-      DEF holder_right Transform {
+      DEF holder_right Pose {
         translation 0.06985 0 0
+        rotation -1 0 0 1.5707963267948966
         children [
           USE shape_3
         ]
       }
-      DEF holder_left Transform {
+      DEF holder_left Pose {
         translation -0.06985 0 0
+        rotation -1 0 0 1.5707963267948966
         children [
           USE shape_3
         ]
       }
-      DEF bottom_left_bouyant Transform {
+      DEF bottom_left_bouyant Pose {
         translation 0.06985 -0.0762 0
-        rotation 1 0 0 -1.5707953071795862
+        rotation -1 0 0 3.141591633975729
         children [
           USE shape_4
         ]
       }
-      DEF bottom_right_bouyant Transform {
+      DEF bottom_right_bouyant Pose {
         translation -0.06985 -0.0762 0
-        rotation 1 0 0 -1.5707953071795862
+        rotation -1 0 0 3.141591633975729
         children [
           USE shape_4
         ]
       }
-      DEF top_right_bouyant Transform {
+      DEF top_right_bouyant Pose {
         translation 0.0698 0.0889 0
-        rotation 1 0 0 -1.5707953071795862
+        rotation -1 0 0 3.141591633975729
         children [
           USE shape_5
         ]
       }
-      DEF top_left_bouyant Transform {
+      DEF top_left_bouyant Pose {
         translation -0.0698 0.0889 0
-        rotation 1 0 0 -1.5707953071795862
+        rotation -1 0 0 3.141591633975729
         children [
           USE shape_5
         ]
@@ -1239,51 +1268,89 @@ DEF ROV Robot {
     }
   }
   controller "ROV_controller"
+  linearVelocity -2.085765913400284e-11 0.058986528938359484 7.117452396795257e-11
+  angularVelocity -0.06801106478531264 0.0035067623876287183 0.27154219753535047
 }
 AdvertisingBoard {
-  translation 0 0.5 0
+  translation 2.51 1.02 -9.88998e-07
+  rotation 1 0 0 -1.5707953071795862
+  frontTexture [
+    "/home/kishore/Downloads/hopkins.jpeg"
+  ]
+  backTexture [
+    "/home/kishore/Downloads/download.png"
+  ]
+  displayWidth 1
+  displayHeight 0.75
+  frameThickness 0.1
+}
+AdvertisingBoard {
+  translation 0.18 1.02 -4.03
+  rotation -0.5773502691896257 0.5773502691896257 0.5773502691896257 2.09
+  frontTexture [
+    "/home/kishore/Downloads/PAVE.jpeg"
+  ]
+  backTexture [
+    "/home/kishore/Downloads/PAVE.jpeg"
+  ]
   displayWidth 1
   displayHeight 0.75
   frameThickness 0.1
 }
 BeerBottle {
-  translation 1.49 0 2
+  translation 0.2597936062254152 0.03081017748026854 -0.4087153418154936
+  rotation 0.010638871173354167 -0.07056271499678124 0.9974506091393397 0.11836640583664661
 }
 BeerBottle {
-  translation 1.49 0 1.03
+  translation 1.49 0.030808995027841703 1.0300543256251486
+  rotation 1 0 0 0.0017476758156757582
   name "beer bottle(1)"
 }
 Can {
-  translation -0.11 0.06 1.54
+  hidden linearVelocity_0 0.03017114595606246 2.4840979755789573e-12 -2.4363430230885685e-06
+  hidden angularVelocity_0 -7.673576463926685e-05 9.711809619968595e-07 -0.9502723135762445
+  translation -30.434275387423206 0.03147373838407859 1.5511888861622907
+  rotation -3.7319850239620374e-05 0.00024195997540323716 -0.9999999700312989 0.3313786363453703
 }
 Can {
-  translation -0.11 0.06 1.91
+  hidden linearVelocity_0 -1.9964521643315592e-07 8.35791327522202e-17 2.524304427235844e-11
+  hidden angularVelocity_0 2.4374063106765245e-10 -6.426394227531825e-12 6.288038327101829e-06
+  translation -0.11009510455731783 0.031475536968548996 -0.21279450227652977
+  rotation 0.9999992741811105 0.0012046832123081394 -1.9380668182085302e-05 -3.1415915848910925
   name "can(1)"
 }
 Can {
-  translation -0.35 0.06 1.6
+  hidden linearVelocity_0 -0.030537883911549893 -1.1631786059396497e-12 1.1407645545199405e-06
+  hidden angularVelocity_0 3.5929040952634236e-05 -9.829859070008267e-07 0.9618231153239176
+  translation -37.714778031178945 0.03147368732410986 1.6012665653855298
+  rotation -4.0028770443885464e-05 -0.00077989519086804 -0.999999695080548 -0.04785714735264346
   name "can(2)"
 }
 Can {
-  translation -0.31 0.06 1.8
+  hidden linearVelocity_0 1.3189747264114463e-17 -5.954432338546341e-17 8.752212532179143e-12
+  hidden angularVelocity_0 1.2718628382288077e-15 -7.019064765582919e-17 -2.649714428633231e-16
+  translation -0.4673769993761374 0.060962260668508246 0.39164920282072374
+  rotation -0.9992119619648426 -0.0280664696106865 -0.02806649871220654 1.571583638535911
   name "can(4)"
 }
 Can {
-  translation -0.11 0.06 1.72
+  translation -0.11 0.03147356630319418 1.7200000752423137
+  rotation 1 0 0 1.0220027939579464e-06
   name "can(3)"
 }
+ 
 WaterBottle {
-  translation 2.13 0 -2.07
-}
-WaterBottle {
-  translation 2.3 0 -2.07
+  hidden linearVelocity_0 0.06918601777825358 -2.091496454680568e-12 2.0512783007922276e-06
+  hidden angularVelocity_0 4.661878560794118e-05 0.00203902715482525 -1.5724081729022057
+  translation -22.63463163183017 0.043372286407034874 0.937767940249171
+  rotation 8.755624766583329e-05 -0.0006507175129038674 0.9999997844502878 2.8283740142694116
   name "water bottle(1)"
 }
 WaterBottle {
-  translation 2.24 0 -1.93
+  hidden linearVelocity_0 0.0008127341840241516 3.3594564314371576e-14 -3.2949368376831364e-08
+  hidden angularVelocity_0 -7.499852913588583e-07 2.395262980380336e-05 -0.01847121592473163
+  translation 0.5821691117038647 0.04337521060415164 -1.9301736123035267
+  rotation 0.0011111610688777627 0.0006838037907911823 -0.9999991488663651 1.0407249175977253
   name "water bottle(2)"
 }
-WaterBottle {
-  translation 2.13 0 -2.23
-  name "water bottle(3)"
-}
+ 
